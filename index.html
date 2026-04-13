@@ -127,13 +127,9 @@
     </nav>
 
     <!-- 1. HERO SECTION -->
-    <section class="relative h-screen min-h-[600px] flex items-center" id="home">
-        <!-- Background Image -->
-        <div class="absolute inset-0 z-0">
-            <!-- Premium SUV receiving client at airport - Warm natural light -->
-            <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0be2?q=80&w=2070" alt="Premium SUV receiving client at airport" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 hero-overlay"></div>
-        </div>
+    <section class="relative h-screen min-h-[600px] flex items-center bg-cover bg-center" style="background-image: url('./hero-image.jpg');" id="home">
+        <!-- Background Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black/80 z-0"></div>
 
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div class="max-w-3xl pt-20">
