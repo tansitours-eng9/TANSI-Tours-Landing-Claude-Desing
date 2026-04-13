@@ -31,6 +31,7 @@
                     },
                     boxShadow: {
                         'premium': '0 20px 40px -10px rgba(26, 35, 126, 0.08)',
+                        'premium-hover': '0 25px 50px -12px rgba(26, 35, 126, 0.15)',
                     }
                 }
             }
@@ -42,17 +43,10 @@
         body { background-color: #F8FAFC; }
         
         .glass-nav {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-        }
-
-        .glass-pill {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .hero-overlay {
@@ -76,7 +70,7 @@
         
         .card-hover:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px -10px rgba(26, 35, 126, 0.12);
+            box-shadow: 0 25px 50px -12px rgba(26, 35, 126, 0.15);
         }
 
         .image-zoom-container {
@@ -90,12 +84,6 @@
         .card-hover:hover .image-zoom-container img {
             transform: scale(1.05);
         }
-
-        /* Diagonal geometric pattern for background */
-        .pattern-bg {
-            background-color: #F8FAFC;
-            background-image: width="100%" height="100%" fill="none" viewBox="0 0 100 100" preserveAspectRatio="none"
-        }
     </style>
 </head>
 <body class="font-sans text-darkText antialiased selection:bg-accent selection:text-white">
@@ -105,13 +93,13 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center cursor-pointer">
-                    <span class="text-2xl font-bold text-primary tracking-tight">TANSI<span class="text-accent">.</span>Tours</span>
+                    <img src="./logo.png" alt="TANSI Tours Logo" class="h-14 w-auto drop-shadow-sm" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-primary tracking-tight\'>TANSI<span class=\'text-accent\'>.</span>Tours</span>'">
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#experiences" class="text-darkText hover:text-primary font-medium transition-colors">Experiences</a>
                     <a href="#how-it-works" class="text-darkText hover:text-primary font-medium transition-colors">How it works</a>
                     <a href="#insights" class="text-darkText hover:text-primary font-medium transition-colors">Insights</a>
-                    <a href="#contact" class="bg-primary hover:bg-opacity-90 text-white px-6 py-2.5 rounded-full font-medium transition-colors shadow-md">
+                    <a href="https://wa.me/573233909989" target="_blank" class="bg-primary hover:bg-opacity-90 text-white px-6 py-2.5 rounded-full font-medium transition-colors shadow-md">
                         Plan your trip
                     </a>
                 </div>
@@ -129,23 +117,14 @@
     <section class="relative h-screen min-h-[600px] flex items-center" id="home">
         <!-- Background Image -->
         <div class="absolute inset-0 z-0">
-            <!-- Professional premium SUV at airport -- Unsplash placeholder -->
-            <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0be2?q=80&w=2070" alt="Premium SUV at airport" class="w-full h-full object-cover" />
+            <!-- Premium SUV receiving client at airport - Warm natural light -->
+            <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0be2?q=80&w=2070" alt="Premium SUV receiving client at airport" class="w-full h-full object-cover" />
             <div class="absolute inset-0 hero-overlay"></div>
         </div>
 
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div class="max-w-3xl pt-20">
-                
-                <!-- Subtle Flagship Offer -->
-                <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full glass-pill text-white text-sm mb-8 reveal shadow-lg w-auto">
-                    <span class="w-2.5 h-2.5 rounded-full bg-accent animate-pulse shadow-[0_0_8px_rgba(245,158,11,0.8)]"></span> 
-                    <span class="font-medium tracking-wide">
-                        <span class="opacity-80">Flagship Offer:</span> Traslado MDE Cero-Riesgo — SUV Premium TODO Incluido <span class="text-accent font-bold">$160.000 COP</span>
-                    </span>
-                </div>
-
-                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight mb-6 reveal uppercase tracking-tight">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight mb-6 reveal tracking-tight">
                     Your experience in Medellín starts the moment you land.
                 </h1>
                 
@@ -157,7 +136,7 @@
                     <a href="#experiences" class="flex items-center justify-center bg-accent hover:bg-accentHover text-white px-8 py-4 rounded-full font-semibold transition-all transform hover:scale-105 shadow-[0_10px_20px_-10px_rgba(245,158,11,0.5)]">
                         Explore experiences
                     </a>
-                    <a href="#contact" class="flex items-center justify-center bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-full font-semibold transition-all">
+                    <a href="https://wa.me/573233909989" target="_blank" class="flex items-center justify-center bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-full font-semibold transition-all">
                         Plan your trip
                     </a>
                 </div>
@@ -165,8 +144,36 @@
         </div>
     </section>
 
+    <!-- FLAGSHIP OFFER SECTION -->
+    <section class="relative -mt-16 z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 reveal">
+        <div class="bg-white rounded-2xl shadow-premium-hover p-6 md:p-8 flex flex-col lg:flex-row items-center justify-between border-l-4 border-accent">
+            <div class="flex items-center mb-6 lg:mb-0 w-full lg:w-auto">
+                <div class="h-14 w-14 rounded-full bg-primary/5 flexitems-center justify-center text-3xl mr-5 hidden sm:flex shrink-0 leading-[3.5rem] text-center">
+                    🚘
+                </div>
+                <div>
+                    <h3 class="text-xl md:text-2xl font-bold text-primary mb-1">Traslado MDE Cero-Riesgo — SUV Premium TODO Incluido</h3>
+                    <p class="text-xl md:text-2xl font-bold text-accent">$160.000 COP <span class="text-sm font-medium text-lightText ml-2">(precio final cerrado)</span></p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 md:flex md:flex-row flex-wrap items-center gap-x-6 gap-y-3 text-sm font-medium text-darkText/80 w-full lg:w-auto mt-4 lg:mt-0">
+                <div class="flex items-center"><i data-lucide="check-circle" class="w-4 h-4 text-accent mr-2 shrink-0"></i> Vehículo 2021+</div>
+                <div class="flex items-center"><i data-lucide="check-circle" class="w-4 h-4 text-accent mr-2 shrink-0"></i> Conductor profesional</div>
+                <div class="flex items-center"><i data-lucide="check-circle" class="w-4 h-4 text-accent mr-2 shrink-0"></i> Seguimiento de vuelo</div>
+                <div class="flex items-center"><i data-lucide="check-circle" class="w-4 h-4 text-accent mr-2 shrink-0"></i> Garantía de puntualidad</div>
+            </div>
+            
+            <div class="w-full lg:w-auto mt-6 lg:mt-0 pt-4 lg:pt-0 border-t lg:border-t-0 border-gray-100 flex justify-center">
+                <a href="https://wa.me/573233909989" target="_blank" class="bg-primary hover:bg-primary/90 text-white font-semibold py-2.5 px-6 rounded-full transition-colors whitespace-nowrap hidden lg:block shadow-md">
+                    Reservar Ahora
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- 2. BLOQUE DE CLARIDAD -->
-    <section class="py-24 bg-white relative z-20">
+    <section class="py-16 md:py-24 bg-softOffWhite relative z-10 pt-4">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16 reveal">
                 <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4 tracking-tight">Everything organized from the start</h2>
@@ -205,14 +212,14 @@
     </section>
 
     <!-- 3. EXPERIENCIAS DESTACADAS -->
-    <section class="py-24 bg-softOffWhite" id="experiences">
+    <section class="py-24 bg-white" id="experiences">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal">
                 <div class="max-w-2xl">
                     <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4 tracking-tight">Experiences</h2>
                     <div class="w-20 h-1 bg-accent rounded-full mb-6 md:mb-0"></div>
                 </div>
-                <a href="#all-tours" class="flex items-center text-primary font-semibold hover:text-accent transition-colors group">
+                <a href="https://wa.me/573233909989" target="_blank" class="flex items-center text-primary font-semibold hover:text-accent transition-colors group">
                     View all experiences 
                     <i data-lucide="arrow-right" class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform"></i>
                 </a>
@@ -220,53 +227,35 @@
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Card 1 -->
-                <div class="bg-white rounded-2xl overflow-hidden card-hover shadow-premium reveal">
+                <div class="bg-softOffWhite rounded-2xl overflow-hidden card-hover shadow-premium reveal">
                     <div class="relative h-64 image-zoom-container">
                         <img src="https://images.unsplash.com/photo-1516086711581-9b1686c4ad43?q=80&w=2070" alt="Guatapé, Colombia" class="w-full h-full object-cover">
-                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-primary">
-                            Full-Day
-                        </div>
                     </div>
-                    <div class="p-8">
+                    <div class="p-8 bg-white h-full">
                         <h3 class="text-2xl font-bold text-darkText mb-3">Guatapé</h3>
                         <p class="text-lightText mb-6">A full-day journey through mountains, lakes and local culture.</p>
-                        <a href="#guatape" class="text-accent font-medium hover:text-accentHover flex items-center">
-                            Explore <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
-                        </a>
                     </div>
                 </div>
 
                 <!-- Card 2 -->
-                <div class="bg-white rounded-2xl overflow-hidden card-hover shadow-premium reveal" style="transition-delay: 100ms;">
+                <div class="bg-softOffWhite rounded-2xl overflow-hidden card-hover shadow-premium reveal" style="transition-delay: 100ms;">
                     <div class="relative h-64 image-zoom-container">
                         <img src="https://images.unsplash.com/photo-1520696956276-8051a24d5ba1?q=80&w=2070" alt="Paragliding in Medellín" class="w-full h-full object-cover">
-                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-primary">
-                            Half-Day
-                        </div>
                     </div>
-                    <div class="p-8">
+                    <div class="p-8 bg-white h-full">
                         <h3 class="text-2xl font-bold text-darkText mb-3">Paragliding</h3>
                         <p class="text-lightText mb-6">Fly over Medellín's valleys with certified pilots.</p>
-                        <a href="#paragliding" class="text-accent font-medium hover:text-accentHover flex items-center">
-                            Explore <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
-                        </a>
                     </div>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="bg-white rounded-2xl overflow-hidden card-hover shadow-premium reveal" style="transition-delay: 200ms;">
+                <div class="bg-softOffWhite rounded-2xl overflow-hidden card-hover shadow-premium reveal" style="transition-delay: 200ms;">
                     <div class="relative h-64 image-zoom-container">
                         <img src="https://images.unsplash.com/photo-1582299881640-3fcaaaed4511?q=80&w=2070" alt="Medellín City" class="w-full h-full object-cover">
-                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-primary">
-                            Full-Day / Half-Day
-                        </div>
                     </div>
-                    <div class="p-8">
+                    <div class="p-8 bg-white h-full">
                         <h3 class="text-2xl font-bold text-darkText mb-3">City Experience</h3>
                         <p class="text-lightText mb-6">Discover the history and transformation of the city.</p>
-                        <a href="#city" class="text-accent font-medium hover:text-accentHover flex items-center">
-                            Explore <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -274,7 +263,7 @@
     </section>
 
     <!-- 4. CÓMO FUNCIONA -->
-    <section class="py-24 bg-white border-t border-gray-100" id="how-it-works">
+    <section class="py-24 bg-softOffWhite border-t border-gray-100" id="how-it-works">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-20 reveal">
                 <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4 tracking-tight">Simple and clear</h2>
@@ -286,23 +275,18 @@
                 <div class="hidden md:block absolute top-8 left-[10%] right-[10%] h-0.5 bg-primary/10 -z-10"></div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-                    <!-- Step 1 -->
                     <div class="reveal relative">
-                        <div class="w-16 h-16 mx-auto bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mb-6 shadow-lg shadow-primary/30">1</div>
+                        <div class="w-16 h-16 mx-auto bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mb-6 shadow-lg shadow-primary/30 border-4 border-softOffWhite">1</div>
                         <h3 class="text-xl font-bold mb-3 text-darkText">Choose your experience</h3>
                         <p class="text-lightText">Select your dates and the plan that fits you.</p>
                     </div>
-
-                    <!-- Step 2 -->
                     <div class="reveal relative" style="transition-delay: 100ms;">
-                        <div class="w-16 h-16 mx-auto bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mb-6 shadow-lg shadow-primary/30">2</div>
+                        <div class="w-16 h-16 mx-auto bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mb-6 shadow-lg shadow-primary/30 border-4 border-softOffWhite">2</div>
                         <h3 class="text-xl font-bold mb-3 text-darkText">Confirm your booking</h3>
                         <p class="text-lightText">Secure your reservation in minutes.</p>
                     </div>
-
-                    <!-- Step 3 -->
                     <div class="reveal relative" style="transition-delay: 200ms;">
-                        <div class="w-16 h-16 mx-auto bg-accent text-white rounded-full flex items-center justify-center text-xl font-bold mb-6 shadow-lg shadow-accent/30">3</div>
+                        <div class="w-16 h-16 mx-auto bg-accent text-white rounded-full flex items-center justify-center text-xl font-bold mb-6 shadow-lg shadow-accent/30 border-4 border-softOffWhite">3</div>
                         <h3 class="text-xl font-bold mb-3 text-darkText">We take care of the rest</h3>
                         <p class="text-lightText">From arrival to the last detail of your experience.</p>
                     </div>
@@ -312,41 +296,17 @@
     </section>
 
     <!-- 5. DIFERENCIAL -->
-    <section class="py-0 relative overflow-hidden">
+    <section class="py-0 relative overflow-hidden bg-primary">
         <div class="flex flex-col lg:flex-row">
-            <!-- Text Content -->
-            <div class="w-full lg:w-1/2 bg-primary text-white py-24 px-8 lg:px-20 flex flex-col justify-center relative z-10">
+            <div class="w-full lg:w-1/2 text-white py-24 px-8 lg:px-20 flex flex-col justify-center relative z-10">
                 <div class="max-w-xl mx-auto lg:mx-0 lg:ml-auto reveal">
                     <h2 class="text-3xl md:text-4xl font-bold mb-8 leading-tight">A well-organized experience makes the difference</h2>
                     <div class="w-16 h-1 bg-accent rounded-full mb-8"></div>
                     <p class="text-lg text-white/90 leading-relaxed max-w-md">
                         Clean vehicles, clear communication, and attention to every detail. You always know what's next — and everything runs as planned.
                     </p>
-                    
-                    <div class="mt-12 space-y-4">
-                        <div class="flex items-center">
-                            <div class="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-accent mr-4">
-                                <i data-lucide="check" class="w-4 h-4 border-2 rounded-full border-accent text-transparent bg-clip-text text-accent"></i>
-                            </div>
-                            <span class="font-medium text-white/90">Premium, spotless vehicles</span>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-accent mr-4">
-                                <i data-lucide="check" class="w-4 h-4 border-2 rounded-full border-accent text-transparent bg-clip-text text-accent"></i>
-                            </div>
-                            <span class="font-medium text-white/90">Professional, bilingual drivers</span>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-accent mr-4">
-                                <i data-lucide="check" class="w-4 h-4 border-2 rounded-full border-accent text-transparent bg-clip-text text-accent"></i>
-                            </div>
-                            <span class="font-medium text-white/90">Zero hidden fees, pure transparency</span>
-                        </div>
-                    </div>
                 </div>
             </div>
-
-            <!-- Image Content -->
             <div class="w-full lg:w-1/2 h-96 lg:h-auto relative reveal">
                 <img src="https://images.unsplash.com/photo-1581691349547-5d2cd7bfea9e?q=80&w=2070" alt="Interior of premium vehicle" class="w-full h-full object-cover object-center absolute inset-0">
             </div>
@@ -354,11 +314,7 @@
     </section>
 
     <!-- 6. TESTIMONIOS -->
-    <section class="py-24 bg-softOffWhite relative overflow-hidden">
-        <!-- Floating shapes for design -->
-        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-primary/5 blur-3xl"></div>
-        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-accent/5 blur-3xl"></div>
-
+    <section class="py-24 bg-white relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center max-w-3xl mx-auto mb-16 reveal">
                 <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4 tracking-tight">What our clients say</h2>
@@ -366,15 +322,10 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
-                <!-- Testimonial 1 -->
-                <div class="bg-white p-10 rounded-2xl shadow-premium reveal relative">
+                <div class="bg-softOffWhite p-10 rounded-2xl shadow-sm reveal relative border border-gray-100">
                     <i data-lucide="quote" class="absolute top-8 right-8 w-12 h-12 text-primary/10"></i>
                     <div class="flex mb-6 text-accent">
-                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i>
                     </div>
                     <p class="text-lg text-darkText italic mb-8 leading-relaxed">
                         "The peace of mind knowing someone is waiting for you at the airport in a new, clean SUV is priceless. Booking the Guatapé tour was simple, and the driver was incredibly professional."
@@ -388,15 +339,10 @@
                     </div>
                 </div>
 
-                <!-- Testimonial 2 -->
-                <div class="bg-white p-10 rounded-2xl shadow-premium reveal relative" style="transition-delay: 100ms;">
+                <div class="bg-softOffWhite p-10 rounded-2xl shadow-sm reveal relative border border-gray-100" style="transition-delay: 100ms;">
                     <i data-lucide="quote" class="absolute top-8 right-8 w-12 h-12 text-primary/10"></i>
                     <div class="flex mb-6 text-accent">
-                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i>
                     </div>
                     <p class="text-lg text-darkText italic mb-8 leading-relaxed">
                         "Unbeatable service. From the clear communication on WhatsApp to the exact timing of our tours. I recommend them to anyone who wants zero stress in Medellín."
@@ -414,7 +360,7 @@
     </section>
 
     <!-- 7. TRAVEL INSIGHTS -->
-    <section class="py-24 bg-white" id="insights">
+    <section class="py-24 bg-softOffWhite" id="insights">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal">
                 <div class="max-w-2xl">
@@ -424,48 +370,34 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Article 1 -->
-                <div class="group cursor-pointer reveal">
-                    <div class="overflow-hidden rounded-2xl mb-5 h-56 bg-gray-100">
+                <div class="group cursor-pointer reveal bg-white p-4 rounded-2xl shadow-sm hover:shadow-premium transition-all">
+                    <div class="overflow-hidden rounded-xl mb-5 h-56 bg-gray-100">
                         <img src="https://images.unsplash.com/photo-1518104593124-ac2e82a5eb9b?q=80&w=1000" alt="Guatape view" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
                     </div>
-                    <div class="pr-6">
+                    <div class="px-2">
                         <span class="text-accent text-sm font-bold uppercase tracking-wider mb-2 block">Guide</span>
                         <h3 class="text-xl font-bold text-darkText mb-3 group-hover:text-primary transition-colors">How to visit Guatapé without stress</h3>
                         <p class="text-lightText mb-4 line-clamp-2">Tips to avoid the crowds, choose the right route, and fully enjoy the rock and the colorful town.</p>
-                        <a href="#" class="text-primary font-semibold flex items-center">
-                            Read more <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
-                        </a>
                     </div>
                 </div>
-
-                <!-- Article 2 -->
-                <div class="group cursor-pointer reveal" style="transition-delay: 100ms;">
-                    <div class="overflow-hidden rounded-2xl mb-5 h-56 bg-gray-100">
+                <div class="group cursor-pointer reveal bg-white p-4 rounded-2xl shadow-sm hover:shadow-premium transition-all" style="transition-delay: 100ms;">
+                    <div class="overflow-hidden rounded-xl mb-5 h-56 bg-gray-100">
                         <img src="https://images.unsplash.com/photo-1582098670154-f57ec7ccc397?q=80&w=1000" alt="Medellin layout" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
                     </div>
-                    <div class="pr-6">
+                    <div class="px-2">
                         <span class="text-accent text-sm font-bold uppercase tracking-wider mb-2 block">Preparation</span>
                         <h3 class="text-xl font-bold text-darkText mb-3 group-hover:text-primary transition-colors">What to know before arriving in Medellín</h3>
                         <p class="text-lightText mb-4 line-clamp-2">Weather insights, transportation basics, and how to seamlessly transition from the airport to your hotel.</p>
-                        <a href="#" class="text-primary font-semibold flex items-center">
-                            Read more <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
-                        </a>
                     </div>
                 </div>
-
-                <!-- Article 3 -->
-                <div class="group cursor-pointer reveal" style="transition-delay: 200ms;">
-                    <div class="overflow-hidden rounded-2xl mb-5 h-56 bg-gray-100">
+                <div class="group cursor-pointer reveal bg-white p-4 rounded-2xl shadow-sm hover:shadow-premium transition-all" style="transition-delay: 200ms;">
+                    <div class="overflow-hidden rounded-xl mb-5 h-56 bg-gray-100">
                         <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0be2?q=80&w=1000" alt="Private tour vehicle" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
                     </div>
-                    <div class="pr-6">
+                    <div class="px-2">
                         <span class="text-accent text-sm font-bold uppercase tracking-wider mb-2 block">Comparison</span>
                         <h3 class="text-xl font-bold text-darkText mb-3 group-hover:text-primary transition-colors">Private vs shared tours: what's the difference</h3>
                         <p class="text-lightText mb-4 line-clamp-2">Why a private experience might save you time and provide a much richer dive into local culture.</p>
-                        <a href="#" class="text-primary font-semibold flex items-center">
-                            Read more <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -474,19 +406,12 @@
 
     <!-- 8. CTA FINAL -->
     <section class="py-24 bg-primary text-center px-4 sm:px-6 relative overflow-hidden">
-        <!-- Background accents -->
-        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-full h-full max-w-7xl overflow-hidden opacity-10 pointer-events-none">
-            <svg class="absolute w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                <path d="M0,100 L100,0 L100,100 Z" fill="currentColor"></path>
-            </svg>
-        </div>
-
         <div class="max-w-3xl mx-auto relative z-10 reveal">
             <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">Start your experience with clarity</h2>
             <p class="text-lg md:text-xl text-white/80 mb-10 font-light leading-relaxed max-w-2xl mx-auto">
                 Plan your trip with everything organized from the moment you arrive. No surprises, just premium service.
             </p>
-            <a href="#contact" class="inline-flex items-center justify-center bg-accent hover:bg-accentHover text-white px-10 py-5 rounded-full text-lg font-bold transition-all transform hover:scale-105 shadow-[0_10px_20px_-10px_rgba(245,158,11,0.5)]">
+            <a href="https://wa.me/573233909989" target="_blank" class="inline-flex items-center justify-center bg-accent hover:bg-accentHover text-white px-10 py-5 rounded-full text-lg font-bold transition-all transform hover:scale-105 shadow-[0_10px_20px_-10px_rgba(245,158,11,0.5)]">
                 Book your experience
             </a>
         </div>
@@ -496,33 +421,20 @@
     <footer class="bg-[#0f172a] text-white pt-20 pb-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                <!-- Branding -->
                 <div class="col-span-1 md:col-span-1">
-                    <span class="text-2xl font-bold tracking-tight mb-6 block text-white">TANSI<span class="text-accent">.</span>Tours</span>
+                    <img src="./logo.png" alt="TANSI Tours Logo" class="h-16 w-auto mb-6 brightness-0 invert opacity-90" onerror="this.outerHTML='<span class=\'text-2xl font-bold tracking-tight mb-6 block text-white\'>TANSI<span class=\'text-accent\'>.</span>Tours</span>'">
                     <p class="text-gray-400 text-sm leading-relaxed mb-6">
                         Premium private transportation and experiences in Medellín and Antioquia, Colombia.
                     </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <i data-lucide="instagram" class="w-5 h-5"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <i data-lucide="facebook" class="w-5 h-5"></i>
-                        </a>
-                    </div>
                 </div>
-
-                <!-- Quick Links -->
                 <div>
                     <h4 class="font-bold text-lg mb-6 text-white">Company</h4>
                     <ul class="space-y-4">
                         <li><a href="#experiences" class="text-gray-400 hover:text-accent transition-colors text-sm">Experiences</a></li>
-                        <li><a href="#about" class="text-gray-400 hover:text-accent transition-colors text-sm">About us</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-accent transition-colors text-sm">Contact</a></li>
+                        <li><a href="#how-it-works" class="text-gray-400 hover:text-accent transition-colors text-sm">How it works</a></li>
+                        <li><a href="https://wa.me/573233909989" class="text-gray-400 hover:text-accent transition-colors text-sm">Contact</a></li>
                     </ul>
                 </div>
-
-                <!-- Contact Info -->
                 <div class="col-span-1 md:col-span-2">
                     <h4 class="font-bold text-lg mb-6 text-white">Contact</h4>
                     <ul class="space-y-4">
@@ -530,53 +442,42 @@
                             <i data-lucide="message-circle" class="w-5 h-5 text-accent mr-3 mt-0.5"></i>
                             <div>
                                 <span class="block text-sm font-semibold text-white">WhatsApp</span>
-                                <a href="https://wa.me/573000000000" class="text-gray-400 hover:text-white transition-colors text-sm">+57 300 000 0000</a>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <i data-lucide="mail" class="w-5 h-5 text-accent mr-3 mt-0.5"></i>
-                            <div>
-                                <span class="block text-sm font-semibold text-white">Email</span>
-                                <a href="mailto:hello@tansi.tours" class="text-gray-400 hover:text-white transition-colors text-sm">hello@tansi.tours</a>
+                                <a href="https://wa.me/573233909989" target="_blank" class="text-gray-400 hover:text-white transition-colors text-sm">+57 323 390 9989</a>
                             </div>
                         </li>
                     </ul>
                 </div>
             </div>
-
-            <!-- Bottom bar -->
             <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
                 <p>&copy; 2026 TANSI Tours. All rights reserved.</p>
-                <div class="mt-4 md:mt-0 space-x-6">
-                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
-                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
-                </div>
             </div>
         </div>
     </footer>
 
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/573233909989" target="_blank" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white px-5 py-3.5 rounded-full shadow-[0_10px_25px_rgba(37,211,102,0.4)] hover:scale-105 transition-transform flex items-center gap-3">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.878-.788-1.47-1.761-1.643-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+        </svg>
+        <span class="font-bold tracking-wide text-[15px]">Chatea con nosotros</span>
+    </a>
+
     <!-- Scripts -->
     <script>
-        // Initialize Lucide Icons
         lucide.createIcons();
-
-        // Reveal Animations on Scroll
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 50; // threshold
+                var elementVisible = 50; 
                 if (elementTop < windowHeight - elementVisible) {
                     reveals[i].classList.add("active");
                 }
             }
         }
         window.addEventListener("scroll", reveal);
-        // Trigger once on load
         reveal();
-
-        // Navbar blur and shadow on scroll
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
