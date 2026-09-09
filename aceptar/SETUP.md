@@ -27,12 +27,9 @@ https://www.tansitours.lat/aceptar?ref=SM-001&paquete=Santa+Marta+Op2+Velero&val
 1. Entra a [formspree.io](https://formspree.io) con **tansi.tours@gmail.com**
 2. Crea un formulario: **"Aceptación Contrato TANSI"**
 3. Copia el **Form ID** (aparece en la URL: `formspree.io/f/` **`xyzabcde`**)
-4. Abre `aceptar/config.js` y reemplaza:
-   ```js
-   formspreeId: 'YOUR_FORM_ID',  // ← pegar aquí
-   ```
-5. En Formspree → Settings → activa **"Redirect on submit"** (opcional; ya lo manejamos con `_next`)
-6. En Formspree → Notifications → confirma que lleguen a `tansi.tours@gmail.com`
+4. El Form ID ya está en `aceptar/index.html` (`action="https://formspree.io/f/xyeylnrv"`).
+   Si cambias de formulario, actualiza esa URL en el HTML.
+5. En Formspree → Notifications → confirma que lleguen a `tansi.tours@gmail.com`
 
 ---
 

@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="/css/styles.css">
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
     details.clausula > summary { list-style: none; cursor: pointer; }
@@ -23,7 +23,7 @@
   <nav class="bg-white border-b border-gray-100 shadow-sm sticky top-0 z-40">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between gap-4">
       <a href="/" class="flex items-center shrink-0">
-        <img src="../logo-header.png" alt="TANSI Tours" class="h-10 md:h-12 w-auto"
+        <img src="/logo-header.png" alt="TANSI Tours" class="h-10 md:h-12 w-auto"
              onerror="this.outerHTML='<span class=\'text-xl font-bold text-primary\'>TANSI<span class=\'text-accent\'>.</span>Tours</span>'">
       </a>
       <span class="text-xs font-semibold uppercase tracking-wider text-accent bg-accent/10 px-3 py-1.5 rounded-full hidden sm:inline">
@@ -52,11 +52,6 @@
   </header>
 
   <main class="max-w-4xl mx-auto px-4 sm:px-6 py-8 md:py-12 space-y-8">
-
-    <!-- ALERTA CONFIG -->
-    <div id="config-alert" class="hidden bg-red-50 border border-red-200 text-red-800 rounded-2xl p-4 text-sm">
-      <b>Configuración pendiente:</b> edita <code class="bg-red-100 px-1 rounded">aceptar/config.js</code> y reemplaza <code class="bg-red-100 px-1 rounded">YOUR_FORM_ID</code> con tu Form ID de Formspree antes de publicar.
-    </div>
 
     <!-- RESUMEN PAQUETE -->
     <section class="bg-white rounded-2xl shadow-premium border border-gray-100 p-6 md:p-8">
@@ -275,7 +270,7 @@
       </div>
       <p class="text-sm text-lightText mb-6">Completa tus datos, marca todas las casillas y firma electrónicamente.</p>
 
-      <form id="aceptar-form" method="POST" class="space-y-6">
+      <form id="aceptar-form" method="POST" action="https://formspree.io/f/xyeylnrv" class="space-y-6">
         <!-- Campos ocultos Formspree -->
         <input type="hidden" name="_subject" value="Nueva aceptación de contrato — TANSI Tours">
         <input type="hidden" name="_language" value="es">
@@ -401,11 +396,9 @@
     <p>Turismo Auténtico, Natural, Seguro e Inteligente.</p>
   </footer>
 
-  <script src="config.js"></script>
   <script>
     lucide.createIcons();
 
-    const cfg = window.TANSI_ACEPTAR_CONFIG || {};
     const form = document.getElementById('aceptar-form');
     const params = new URLSearchParams(window.location.search);
 
@@ -425,7 +418,11 @@
 
     setField('field-ref', 'ref');
     setField('paquete', 'paquete', 'preview-paquete');
-    setField('valor_total', 'valor', 'preview-valor', v => v.startsWith('$') ? v : '$' + Number(v).toLocaleString('es-CO'));
+    setField('valor_total', 'valor', 'preview-valor', v => {
+      if (v.startsWith('$')) return v;
+      const n = Number(String(v).replace(/\./g, '').replace(/,/g, ''));
+      return isNaN(n) ? v : '$' + n.toLocaleString('es-CO');
+    });
     setField('pasajeros', 'pasajeros', 'preview-pasajeros', v => v + ' pasajeros');
     setField('fechas', 'fechas', 'preview-fechas');
 
@@ -440,14 +437,6 @@
       const el = document.getElementById(id);
       if (el.textContent === '—') el.textContent = 'Completar en formulario';
     });
-
-    // --- Configurar Formspree ---
-    const formspreeId = cfg.formspreeId || 'YOUR_FORM_ID';
-    if (formspreeId === 'YOUR_FORM_ID') {
-      document.getElementById('config-alert').classList.remove('hidden');
-    } else {
-      form.action = 'https://formspree.io/f/' + formspreeId;
-    }
 
     // Redirect tras envío exitoso
     const nextInput = document.createElement('input');
@@ -473,14 +462,6 @@
       document.getElementById('field-url').value = window.location.href;
       document.getElementById('field-timestamp').value = new Date().toISOString();
       document.getElementById('field-ref').value = params.get('ref') || '';
-
-      if (formspreeId === 'YOUR_FORM_ID') {
-        e.preventDefault();
-        document.getElementById('form-error').textContent =
-          'El formulario aún no está configurado. Contacta a TANSI Tours por WhatsApp.';
-        document.getElementById('form-error').classList.remove('hidden');
-        return;
-      }
 
       const btn = document.getElementById('submit-btn');
       btn.disabled = true;
