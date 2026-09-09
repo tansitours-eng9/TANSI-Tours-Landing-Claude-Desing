@@ -39,8 +39,8 @@ https://www.tansitours.lat/aceptar?lang=en&ref=TANSI-2026-003&paquete=Private+Gu
 | `pasajeros` | `4` | Número de pasajeros |
 | `fechas` | `21-24+oct+2026` | Fechas del viaje |
 
-> La **forma de pago** (75/25, 90/10, etc.) se acuerda en la cotización por WhatsApp;
-> el contrato general acepta “la forma de pago acordada en la cotización”.
+> **Forma de pago actual:** 100% del valor total para confirmar la reserva
+> (después de aceptar el contrato en la web).
 
 ---
 
@@ -80,7 +80,7 @@ Antes del pago, acepta los términos generales aquí (2 min):
 👉 [pegar enlace con paquete, fechas y valor de ESTA reserva]
 
 Tu aceptación equivale a firma (Ley 527).
-Una vez la recibamos, te habilitamos el pago del anticipo 🙌
+Una vez la recibamos, te habilitamos el pago del 100% 🙌
 
 — TANSI.Tours · 323 390 9989
 ```
