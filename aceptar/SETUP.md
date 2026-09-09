@@ -1,5 +1,9 @@
 # Página de aceptación contractual — `/aceptar`
 
+**Términos generales de TANSI Tours** — aplican a cualquier experiencia en Colombia
+(Santa Marta, Cartagena, Antioquia, Eje Cafetero, etc.). El destino y los detalles
+del plan van en los parámetros del enlace (`paquete`, `fechas`, `valor`).
+
 ## URLs
 - Formulario: `https://www.tansitours.lat/aceptar`
 - Confirmación: `https://www.tansitours.lat/aceptar/gracias`
@@ -16,17 +20,27 @@
 Envía al cliente un enlace con los datos del paquete prellenados:
 
 ```
-https://www.tansitours.lat/aceptar?lang=es&ref=SM-001&paquete=Santa+Marta+Op2+Velero&valor=3868000&pasajeros=4&fechas=19-22+oct+2026
+# Ejemplo Santa Marta
+https://www.tansitours.lat/aceptar?lang=es&ref=TANSI-2026-001&paquete=Santa+Marta+3n+Velero&valor=3868000&pasajeros=4&fechas=19-22+oct+2026
+
+# Ejemplo Cartagena
+https://www.tansitours.lat/aceptar?lang=es&ref=TANSI-2026-002&paquete=Cartagena+Esencial+4d&valor=3600000&pasajeros=4&fechas=21-24+oct+2026
+
+# Ejemplo tour privado Antioquia (sin hotel)
+https://www.tansitours.lat/aceptar?lang=en&ref=TANSI-2026-003&paquete=Private+Guatape+Day+Trip&valor=1200000&pasajeros=4&fechas=10+mar+2026
 ```
 
 | Parámetro | Ejemplo | Descripción |
 |-----------|---------|-------------|
 | `lang` | `es` o `en` | Idioma del contrato (opcional) |
-| `ref` | `SM-001` | Referencia interna de la reserva |
-| `paquete` | `Santa+Marta+Op2` | Nombre del plan |
-| `valor` | `3868000` | Valor total en COP |
+| `ref` | `TANSI-2026-001` | Referencia interna de la reserva |
+| `paquete` | `Cartagena+Esencial` | Nombre del plan / experiencia |
+| `valor` | `3600000` | Valor total en COP |
 | `pasajeros` | `4` | Número de pasajeros |
-| `fechas` | `19-22+oct+2026` | Fechas del viaje |
+| `fechas` | `21-24+oct+2026` | Fechas del viaje |
+
+> La **forma de pago** (75/25, 90/10, etc.) se acuerda en la cotización por WhatsApp;
+> el contrato general acepta “la forma de pago acordada en la cotización”.
 
 ---
 
@@ -60,10 +74,10 @@ Vercel despliega automáticamente. No hay cambios en `vercel.json`.
 ```
 Hola [nombre] 👋
 
-Preparamos tu experiencia en *Santa Marta* ✅
-Antes del pago, acepta el contrato aquí (2 min):
+Preparamos tu experiencia con TANSI Tours ✅
+Antes del pago, acepta los términos generales aquí (2 min):
 
-👉 https://www.tansitours.lat/aceptar?ref=SM-001&paquete=Santa+Marta+Op2&valor=3868000&pasajeros=4&fechas=19-22+oct+2026
+👉 [pegar enlace con paquete, fechas y valor de ESTA reserva]
 
 Tu aceptación equivale a firma (Ley 527).
 Una vez la recibamos, te habilitamos el pago del anticipo 🙌
