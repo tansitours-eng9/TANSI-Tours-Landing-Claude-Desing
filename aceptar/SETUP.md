@@ -4,16 +4,24 @@
 - Formulario: `https://www.tansitours.lat/aceptar`
 - Confirmación: `https://www.tansitours.lat/aceptar/gracias`
 
+## Idioma (EN / ES)
+
+- Selector **EN | ES** visible en la esquina superior derecha.
+- Por defecto: inglés (coincide con la landing), salvo que el navegador esté en español o el cliente elija ES.
+- Forzar idioma en el enlace: añade `&lang=es` o `&lang=en`.
+- La preferencia se guarda en el navegador (`localStorage`).
+
 ## Enlace personalizado (WhatsApp)
 
 Envía al cliente un enlace con los datos del paquete prellenados:
 
 ```
-https://www.tansitours.lat/aceptar?ref=SM-001&paquete=Santa+Marta+Op2+Velero&valor=3868000&pasajeros=4&fechas=19-22+oct+2026
+https://www.tansitours.lat/aceptar?lang=es&ref=SM-001&paquete=Santa+Marta+Op2+Velero&valor=3868000&pasajeros=4&fechas=19-22+oct+2026
 ```
 
 | Parámetro | Ejemplo | Descripción |
 |-----------|---------|-------------|
+| `lang` | `es` o `en` | Idioma del contrato (opcional) |
 | `ref` | `SM-001` | Referencia interna de la reserva |
 | `paquete` | `Santa+Marta+Op2` | Nombre del plan |
 | `valor` | `3868000` | Valor total en COP |

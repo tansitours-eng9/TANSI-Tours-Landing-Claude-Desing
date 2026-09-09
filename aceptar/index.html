@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aceptación de Contrato · TANSI Tours</title>
+  <title>Contract Acceptance · TANSI Tours</title>
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,31 +19,30 @@
 </head>
 <body class="font-sans text-darkText antialiased bg-softOffWhite selection:bg-accent selection:text-white">
 
-  <!-- NAV -->
   <nav class="bg-white border-b border-gray-100 shadow-sm sticky top-0 z-40">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between gap-4">
       <a href="/" class="flex items-center shrink-0">
         <img src="/logo-header.png" alt="TANSI Tours" class="h-10 md:h-12 w-auto"
              onerror="this.outerHTML='<span class=\'text-xl font-bold text-primary\'>TANSI<span class=\'text-accent\'>.</span>Tours</span>'">
       </a>
-      <span class="text-xs font-semibold uppercase tracking-wider text-accent bg-accent/10 px-3 py-1.5 rounded-full hidden sm:inline">
-        Aceptación contractual
-      </span>
+      <div class="flex items-center gap-2 sm:gap-3">
+        <div class="flex rounded-full border border-gray-200 overflow-hidden text-xs font-bold shrink-0" role="group" aria-label="Language">
+          <button type="button" id="btn-lang-en" class="px-3 py-1.5 transition-colors bg-primary text-white">EN</button>
+          <button type="button" id="btn-lang-es" class="px-3 py-1.5 transition-colors text-lightText hover:bg-gray-50">ES</button>
+        </div>
+        <span data-i18n="navBadge" class="text-xs font-semibold uppercase tracking-wider text-accent bg-accent/10 px-3 py-1.5 rounded-full hidden md:inline"></span>
+      </div>
     </div>
   </nav>
 
-  <!-- HERO -->
   <header class="bg-gradient-to-br from-primary to-[#37474F] text-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 py-10 md:py-14">
-      <p class="text-accent font-semibold text-sm uppercase tracking-widest mb-3">Antes de pagar</p>
+      <p data-i18n="heroKicker" class="text-accent font-semibold text-sm uppercase tracking-widest mb-3"></p>
       <h1 class="text-2xl md:text-3xl font-bold leading-tight mb-4">
-        Contrato de Servicios Turísticos<br>
-        <span class="text-accent">Términos y Condiciones</span>
+        <span data-i18n="heroTitle"></span><br>
+        <span data-i18n="heroTitleAccent" class="text-accent"></span>
       </h1>
-      <p class="text-white/90 text-sm md:text-base max-w-2xl leading-relaxed">
-        Lee las condiciones, completa tus datos y acepta electrónicamente.
-        Tu aceptación equivale a firma (Ley 527 de 1999). La reserva se confirma con la aceptación más el pago del anticipo.
-      </p>
+      <p data-i18n="heroSub" class="text-white/90 text-sm md:text-base max-w-2xl leading-relaxed"></p>
       <p id="ref-badge" class="hidden mt-4 inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 text-sm">
         <i data-lucide="hash" class="w-4 h-4 text-accent"></i>
         Ref: <span id="ref-display" class="font-semibold"></span>
@@ -53,338 +52,170 @@
 
   <main class="max-w-4xl mx-auto px-4 sm:px-6 py-8 md:py-12 space-y-8">
 
-    <!-- RESUMEN PAQUETE -->
     <section class="bg-white rounded-2xl shadow-premium border border-gray-100 p-6 md:p-8">
       <div class="flex items-center gap-2 mb-4">
         <span class="w-8 h-0.5 bg-accent"></span>
-        <h2 class="text-xs font-bold uppercase tracking-widest text-accent">Resumen de tu reserva</h2>
+        <h2 data-i18n="summaryTitle" class="text-xs font-bold uppercase tracking-widest text-accent"></h2>
       </div>
-      <p class="text-sm text-lightText mb-6">
-        De una parte <b class="text-primary">TANSI Tours</b>, operador turístico integral con RNT, en adelante <b>“la Agencia”</b>;
-        y de la otra parte el Usuario identificado en el formulario, en adelante <b>“el Usuario”</b>.
-      </p>
+      <p data-i18n-html="summaryIntro" class="text-sm text-lightText mb-6"></p>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
         <div class="bg-softOffWhite rounded-xl p-4 border border-gray-100">
-          <span class="text-xs font-bold uppercase tracking-wide text-lightText">Paquete</span>
+          <span data-i18n="lblPackage" class="text-xs font-bold uppercase tracking-wide text-lightText"></span>
           <p id="preview-paquete" class="font-semibold text-primary mt-1">—</p>
         </div>
         <div class="bg-softOffWhite rounded-xl p-4 border border-gray-100">
-          <span class="text-xs font-bold uppercase tracking-wide text-lightText">Valor total</span>
+          <span data-i18n="lblTotal" class="text-xs font-bold uppercase tracking-wide text-lightText"></span>
           <p id="preview-valor" class="font-semibold text-primary mt-1">—</p>
         </div>
         <div class="bg-softOffWhite rounded-xl p-4 border border-gray-100">
-          <span class="text-xs font-bold uppercase tracking-wide text-lightText">Pasajeros</span>
+          <span data-i18n="lblPassengers" class="text-xs font-bold uppercase tracking-wide text-lightText"></span>
           <p id="preview-pasajeros" class="font-semibold text-primary mt-1">—</p>
         </div>
         <div class="bg-softOffWhite rounded-xl p-4 border border-gray-100">
-          <span class="text-xs font-bold uppercase tracking-wide text-lightText">Fechas</span>
+          <span data-i18n="lblDates" class="text-xs font-bold uppercase tracking-wide text-lightText"></span>
           <p id="preview-fechas" class="font-semibold text-primary mt-1">—</p>
         </div>
       </div>
     </section>
 
-    <!-- CLÁUSULAS -->
     <section class="bg-white rounded-2xl shadow-premium border border-gray-100 p-6 md:p-8">
       <div class="flex items-center gap-2 mb-2">
         <span class="w-8 h-0.5 bg-accent"></span>
-        <h2 class="text-xs font-bold uppercase tracking-widest text-accent">Cláusulas del contrato</h2>
+        <h2 data-i18n="clausesTitle" class="text-xs font-bold uppercase tracking-widest text-accent"></h2>
       </div>
-      <p class="text-sm text-lightText mb-6">Expande cada cláusula para leer el detalle completo.</p>
-
-      <div class="space-y-3" id="clausulas">
-
-        <details class="clausula group border border-gray-100 rounded-xl overflow-hidden">
-          <summary class="flex items-center justify-between gap-3 p-4 bg-softOffWhite hover:bg-gray-50 transition-colors">
-            <span class="flex items-center gap-3 text-sm font-semibold text-primary">
-              <span class="w-7 h-7 rounded-lg bg-primary text-white text-xs font-bold flex items-center justify-center shrink-0">1</span>
-              Intermediación y responsabilidad limitada
-            </span>
-            <i data-lucide="chevron-down" class="chevron w-5 h-5 text-lightText transition-transform shrink-0"></i>
-          </summary>
-          <div class="p-4 text-sm text-darkText leading-relaxed border-t border-gray-100">
-            TANSI Tours actúa como <b>intermediario</b> entre el Usuario y los prestadores directos (hoteles, aerolíneas, transportadores, guías y operadores locales). No asume responsabilidad por actos, omisiones, deficiencias, daños materiales o lesiones imputables a dichos proveedores. Las reclamaciones sobre calidad del servicio deben dirigirse a los prestadores finales.
-          </div>
-        </details>
-
-        <details class="clausula group border border-gray-100 rounded-xl overflow-hidden">
-          <summary class="flex items-center justify-between gap-3 p-4 bg-softOffWhite hover:bg-gray-50 transition-colors">
-            <span class="flex items-center gap-3 text-sm font-semibold text-primary">
-              <span class="w-7 h-7 rounded-lg bg-primary text-white text-xs font-bold flex items-center justify-center shrink-0">2</span>
-              No Presentación (No Show)
-            </span>
-            <i data-lucide="chevron-down" class="chevron w-5 h-5 text-lightText transition-transform shrink-0"></i>
-          </summary>
-          <div class="p-4 text-sm text-darkText leading-relaxed border-t border-gray-100">
-            Si el Usuario no se presenta a tiempo en aeropuerto, puerto o punto de encuentro, TANSI Tours no asume responsabilidad por la pérdida de servicios. <b>No procederá reembolso</b> y los costos de reprogramación corren por cuenta del Usuario.
-          </div>
-        </details>
-
-        <details class="clausula group border border-gray-100 rounded-xl overflow-hidden">
-          <summary class="flex items-center justify-between gap-3 p-4 bg-softOffWhite hover:bg-gray-50 transition-colors">
-            <span class="flex items-center gap-3 text-sm font-semibold text-primary">
-              <span class="w-7 h-7 rounded-lg bg-primary text-white text-xs font-bold flex items-center justify-center shrink-0">3</span>
-              Cancelación, penalidades y Derecho de Retracto
-            </span>
-            <i data-lucide="chevron-down" class="chevron w-5 h-5 text-lightText transition-transform shrink-0"></i>
-          </summary>
-          <div class="p-4 text-sm text-darkText leading-relaxed border-t border-gray-100">
-            Las penalidades se rigen por los proveedores finales (hasta <b>100%</b>). TANSI Tours traslada dichas penalidades. El Usuario puede ejercer el <b>Derecho de Retracto</b> en <b>5 días hábiles</b> (Ley 1480 de 2011) si el servicio no ha iniciado. Después aplican las penalidades de los operadores.
-          </div>
-        </details>
-
-        <details class="clausula group border border-gray-100 rounded-xl overflow-hidden">
-          <summary class="flex items-center justify-between gap-3 p-4 bg-softOffWhite hover:bg-gray-50 transition-colors">
-            <span class="flex items-center gap-3 text-sm font-semibold text-primary">
-              <span class="w-7 h-7 rounded-lg bg-primary text-white text-xs font-bold flex items-center justify-center shrink-0">4</span>
-              Asistencia al viajero (seguro médico)
-            </span>
-            <i data-lucide="chevron-down" class="chevron w-5 h-5 text-lightText transition-transform shrink-0"></i>
-          </summary>
-          <div class="p-4 text-sm text-darkText leading-relaxed border-t border-gray-100">
-            TANSI Tours recomienda y ofrece seguro de viaje o tarjeta de asistencia médica. Si el Usuario decide <b>no adquirirlo</b>, asume total responsabilidad por gastos médicos, emergencias y fallecimiento, <b>exonerando a TANSI Tours</b>.
-          </div>
-        </details>
-
-        <details class="clausula group border border-gray-100 rounded-xl overflow-hidden">
-          <summary class="flex items-center justify-between gap-3 p-4 bg-softOffWhite hover:bg-gray-50 transition-colors">
-            <span class="flex items-center gap-3 text-sm font-semibold text-primary">
-              <span class="w-7 h-7 rounded-lg bg-primary text-white text-xs font-bold flex items-center justify-center shrink-0">5</span>
-              Fuerza mayor y caso fortuito
-            </span>
-            <i data-lucide="chevron-down" class="chevron w-5 h-5 text-lightText transition-transform shrink-0"></i>
-          </summary>
-          <div class="p-4 text-sm text-darkText leading-relaxed border-t border-gray-100">
-            TANSI Tours no será responsable por incumplimientos causados por fenómenos naturales, clima adverso, cierres de vías o aeropuertos, huelgas, alteraciones del orden público, epidemias u otras circunstancias imprevisibles e irresistibles.
-          </div>
-        </details>
-
-        <details class="clausula group border border-gray-100 rounded-xl overflow-hidden">
-          <summary class="flex items-center justify-between gap-3 p-4 bg-softOffWhite hover:bg-gray-50 transition-colors">
-            <span class="flex items-center gap-3 text-sm font-semibold text-primary">
-              <span class="w-7 h-7 rounded-lg bg-primary text-white text-xs font-bold flex items-center justify-center shrink-0">6</span>
-              Modificaciones de itinerario y alojamiento
-            </span>
-            <i data-lucide="chevron-down" class="chevron w-5 h-5 text-lightText transition-transform shrink-0"></i>
-          </summary>
-          <div class="p-4 text-sm text-darkText leading-relaxed border-t border-gray-100">
-            TANSI Tours y operadores locales pueden modificar itinerario u alojamiento por fuerza mayor o seguridad, <b>sin aceptación previa</b>, procurando categoría igual o superior. No genera indemnización salvo reducción significativa de servicios.
-          </div>
-        </details>
-
-        <details class="clausula group border border-gray-100 rounded-xl overflow-hidden">
-          <summary class="flex items-center justify-between gap-3 p-4 bg-softOffWhite hover:bg-gray-50 transition-colors">
-            <span class="flex items-center gap-3 text-sm font-semibold text-primary">
-              <span class="w-7 h-7 rounded-lg bg-primary text-white text-xs font-bold flex items-center justify-center shrink-0">7</span>
-              Documentación del viajero
-            </span>
-            <i data-lucide="chevron-down" class="chevron w-5 h-5 text-lightText transition-transform shrink-0"></i>
-          </summary>
-          <div class="p-4 text-sm text-darkText leading-relaxed border-t border-gray-100">
-            Es responsabilidad <b>exclusiva del Usuario</b> portar documentos vigentes (cédula, registros civiles, pasaportes, visados, vacunas). TANSI Tours no responde por denegación de embarque o ingreso por falta de documentos.
-          </div>
-        </details>
-
-        <details class="clausula group border border-gray-100 rounded-xl overflow-hidden">
-          <summary class="flex items-center justify-between gap-3 p-4 bg-softOffWhite hover:bg-gray-50 transition-colors">
-            <span class="flex items-center gap-3 text-sm font-semibold text-primary">
-              <span class="w-7 h-7 rounded-lg bg-primary text-white text-xs font-bold flex items-center justify-center shrink-0">8</span>
-              Equipaje y objetos personales
-            </span>
-            <i data-lucide="chevron-down" class="chevron w-5 h-5 text-lightText transition-transform shrink-0"></i>
-          </summary>
-          <div class="p-4 text-sm text-darkText leading-relaxed border-t border-gray-100">
-            El Usuario es responsable de su equipaje y pertenencias. TANSI Tours no responde por pérdida, robo o daño; el Usuario puede reclamar directamente ante aerolínea, hotel o transportador.
-          </div>
-        </details>
-
-        <details class="clausula group border border-orange-200 rounded-xl overflow-hidden bg-orange-50/30">
-          <summary class="flex items-center justify-between gap-3 p-4 hover:bg-orange-50 transition-colors">
-            <span class="flex items-center gap-3 text-sm font-semibold text-primary">
-              <span class="w-7 h-7 rounded-lg bg-orange-500 text-white text-xs font-bold flex items-center justify-center shrink-0">9</span>
-              Retiro por mal comportamiento
-            </span>
-            <i data-lucide="chevron-down" class="chevron w-5 h-5 text-lightText transition-transform shrink-0"></i>
-          </summary>
-          <div class="p-4 text-sm text-darkText leading-relaxed border-t border-orange-100">
-            TANSI Tours puede retirar al Usuario de la actividad <b>sin reembolso</b> por comportamiento inapropiado, embriaguez, sustancias psicoactivas, agresión o perturbación del grupo.
-          </div>
-        </details>
-
-        <details class="clausula group border border-green-200 rounded-xl overflow-hidden bg-green-50/30">
-          <summary class="flex items-center justify-between gap-3 p-4 hover:bg-green-50 transition-colors">
-            <span class="flex items-center gap-3 text-sm font-semibold text-primary">
-              <span class="w-7 h-7 rounded-lg bg-green-600 text-white text-xs font-bold flex items-center justify-center shrink-0">10</span>
-              Ley 679 de 2001 — Protección de menores
-            </span>
-            <i data-lucide="chevron-down" class="chevron w-5 h-5 text-lightText transition-transform shrink-0"></i>
-          </summary>
-          <div class="p-4 text-sm text-darkText leading-relaxed border-t border-green-100">
-            TANSI Tours promueve un turismo libre de explotación sexual de menores. La explotación y abuso sexual de NNA en Colombia es sancionado penal y administrativamente. Conductas relacionadas serán reportadas a las autoridades.
-          </div>
-        </details>
-
-        <details class="clausula group border border-green-200 rounded-xl overflow-hidden bg-green-50/30">
-          <summary class="flex items-center justify-between gap-3 p-4 hover:bg-green-50 transition-colors">
-            <span class="flex items-center gap-3 text-sm font-semibold text-primary">
-              <span class="w-7 h-7 rounded-lg bg-green-600 text-white text-xs font-bold flex items-center justify-center shrink-0">11</span>
-              Tratamiento de datos (Ley 1581 de 2012)
-            </span>
-            <i data-lucide="chevron-down" class="chevron w-5 h-5 text-lightText transition-transform shrink-0"></i>
-          </summary>
-          <div class="p-4 text-sm text-darkText leading-relaxed border-t border-green-100">
-            El Usuario autoriza a TANSI Tours a recolectar y usar sus datos para gestionar la reserva, emitir tiquetes y coordinar servicios. Los datos podrán compartirse con prestadores finales. El Usuario puede conocer, actualizar o suprimir sus datos en cualquier momento.
-          </div>
-        </details>
-
-        <details class="clausula group border border-gray-100 rounded-xl overflow-hidden">
-          <summary class="flex items-center justify-between gap-3 p-4 bg-softOffWhite hover:bg-gray-50 transition-colors">
-            <span class="flex items-center gap-3 text-sm font-semibold text-primary">
-              <span class="w-7 h-7 rounded-lg bg-primary text-white text-xs font-bold flex items-center justify-center shrink-0">12</span>
-              Aceptación y firma electrónica (Ley 527)
-            </span>
-            <i data-lucide="chevron-down" class="chevron w-5 h-5 text-lightText transition-transform shrink-0"></i>
-          </summary>
-          <div class="p-4 text-sm text-darkText leading-relaxed border-t border-gray-100">
-            La aceptación por medios electrónicos <b>equivale a firma</b>. La reserva se confirma con: (i) aceptación electrónica y (ii) pago del anticipo. TANSI Tours conservará el registro como prueba del consentimiento.
-          </div>
-        </details>
-
-      </div>
-
-      <!-- PAGO -->
+      <p data-i18n="clausesHint" class="text-sm text-lightText mb-6"></p>
+      <div class="space-y-3" id="clausulas"></div>
       <div class="mt-6 bg-accent/5 border border-accent/30 rounded-xl p-5">
-        <h3 class="font-semibold text-primary text-sm mb-3">Forma de pago</h3>
+        <h3 data-i18n="paymentTitle" class="font-semibold text-primary text-sm mb-3"></h3>
         <ul class="space-y-2 text-sm text-darkText">
-          <li class="flex gap-2"><span class="text-accent font-bold">•</span><span><b>Anticipo 75%</b> para confirmar vuelos, hotel y experiencias.</span></li>
-          <li class="flex gap-2"><span class="text-accent font-bold">•</span><span><b>Saldo 25%</b> a más tardar 15 días antes del viaje.</span></li>
-          <li class="flex gap-2"><span class="text-accent font-bold">•</span><span>Reserva confirmada solo tras recibir el anticipo.</span></li>
+          <li class="flex gap-2"><span class="text-accent font-bold">•</span><span data-i18n-html="payment1"></span></li>
+          <li class="flex gap-2"><span class="text-accent font-bold">•</span><span data-i18n-html="payment2"></span></li>
+          <li class="flex gap-2"><span class="text-accent font-bold">•</span><span data-i18n-html="payment3"></span></li>
         </ul>
       </div>
     </section>
 
-    <!-- FORMULARIO -->
     <section class="bg-white rounded-2xl shadow-premium border border-gray-100 p-6 md:p-8" id="formulario">
       <div class="flex items-center gap-2 mb-2">
         <span class="w-8 h-0.5 bg-accent"></span>
-        <h2 class="text-xs font-bold uppercase tracking-widest text-accent">Aceptación electrónica</h2>
+        <h2 data-i18n="formTitle" class="text-xs font-bold uppercase tracking-widest text-accent"></h2>
       </div>
-      <p class="text-sm text-lightText mb-6">Completa tus datos, marca todas las casillas y firma electrónicamente.</p>
+      <p data-i18n="formHint" class="text-sm text-lightText mb-6"></p>
 
       <form id="aceptar-form" method="POST" action="https://formspree.io/f/xyeylnrv" class="space-y-6">
-        <!-- Campos ocultos Formspree -->
-        <input type="hidden" name="_subject" value="Nueva aceptación de contrato — TANSI Tours">
-        <input type="hidden" name="_language" value="es">
+        <input type="hidden" name="_subject" value="New contract acceptance — TANSI Tours">
+        <input type="hidden" name="_language" value="en">
+        <input type="hidden" name="idioma" id="field-idioma" value="en">
         <input type="hidden" name="canal" value="web-tansitours.lat/aceptar">
         <input type="hidden" name="url_aceptacion" id="field-url">
         <input type="hidden" name="fecha_hora_aceptacion" id="field-timestamp">
         <input type="hidden" name="ref_reserva" id="field-ref">
 
-        <!-- Datos personales -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label for="nombre" class="block text-xs font-bold uppercase tracking-wide text-lightText mb-2">Nombre completo *</label>
+            <label for="nombre" data-i18n="lblName" class="block text-xs font-bold uppercase tracking-wide text-lightText mb-2"></label>
             <input type="text" id="nombre" name="nombre" required autocomplete="name"
-                   class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-darkText placeholder:text-lightText focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="Nombre y apellidos">
+                   data-i18n-placeholder="phName"
+                   class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-darkText placeholder:text-lightText focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
           </div>
           <div>
-            <label for="cedula" class="block text-xs font-bold uppercase tracking-wide text-lightText mb-2">Cédula / Documento *</label>
+            <label for="cedula" data-i18n="lblId" class="block text-xs font-bold uppercase tracking-wide text-lightText mb-2"></label>
             <input type="text" id="cedula" name="cedula" required
-                   class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-darkText placeholder:text-lightText focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="Número de documento">
+                   data-i18n-placeholder="phId"
+                   class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-darkText placeholder:text-lightText focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
           </div>
           <div>
-            <label for="telefono" class="block text-xs font-bold uppercase tracking-wide text-lightText mb-2">Teléfono / WhatsApp *</label>
+            <label for="telefono" data-i18n="lblPhone" class="block text-xs font-bold uppercase tracking-wide text-lightText mb-2"></label>
             <input type="tel" id="telefono" name="telefono" required autocomplete="tel"
-                   class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-darkText placeholder:text-lightText focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="+57 300 000 0000">
+                   data-i18n-placeholder="phPhone"
+                   class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-darkText placeholder:text-lightText focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
           </div>
           <div>
-            <label for="email" class="block text-xs font-bold uppercase tracking-wide text-lightText mb-2">Correo electrónico *</label>
+            <label for="email" data-i18n="lblEmail" class="block text-xs font-bold uppercase tracking-wide text-lightText mb-2"></label>
             <input type="email" id="email" name="email" required autocomplete="email"
-                   class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-darkText placeholder:text-lightText focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="correo@ejemplo.com">
+                   data-i18n-placeholder="phEmail"
+                   class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-darkText placeholder:text-lightText focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
           </div>
         </div>
 
-        <!-- Datos del paquete -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div class="sm:col-span-2">
-            <label for="paquete" class="block text-xs font-bold uppercase tracking-wide text-lightText mb-2">Paquete / Plan contratado *</label>
+            <label for="paquete" data-i18n="lblPackageField" class="block text-xs font-bold uppercase tracking-wide text-lightText mb-2"></label>
             <input type="text" id="paquete" name="paquete" required
-                   class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-darkText placeholder:text-lightText focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="Ej. Santa Marta 3 noches — Opción 2 Velero">
+                   data-i18n-placeholder="phPackage"
+                   class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-darkText placeholder:text-lightText focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
           </div>
           <div>
-            <label for="pasajeros" class="block text-xs font-bold uppercase tracking-wide text-lightText mb-2">N.° de pasajeros *</label>
-            <input type="number" id="pasajeros" name="pasajeros" required min="1" max="20"
-                   class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-darkText placeholder:text-lightText focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="4">
+            <label for="pasajeros" data-i18n="lblPassengersField" class="block text-xs font-bold uppercase tracking-wide text-lightText mb-2"></label>
+            <input type="number" id="pasajeros" name="pasajeros" required min="1" max="20" placeholder="4"
+                   class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-darkText placeholder:text-lightText focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
           </div>
           <div>
-            <label for="fechas" class="block text-xs font-bold uppercase tracking-wide text-lightText mb-2">Fechas de viaje *</label>
+            <label for="fechas" data-i18n="lblDatesField" class="block text-xs font-bold uppercase tracking-wide text-lightText mb-2"></label>
             <input type="text" id="fechas" name="fechas" required
-                   class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-darkText placeholder:text-lightText focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="Ej. 19–22 oct 2026">
+                   data-i18n-placeholder="phDates"
+                   class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-darkText placeholder:text-lightText focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
           </div>
           <div>
-            <label for="valor_total" class="block text-xs font-bold uppercase tracking-wide text-lightText mb-2">Valor total (COP) *</label>
+            <label for="valor_total" data-i18n="lblTotalField" class="block text-xs font-bold uppercase tracking-wide text-lightText mb-2"></label>
             <input type="text" id="valor_total" name="valor_total" required
-                   class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-darkText placeholder:text-lightText focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="Ej. $3.868.000">
+                   data-i18n-placeholder="phTotal"
+                   class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-darkText placeholder:text-lightText focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
           </div>
         </div>
 
-        <!-- Casillas de aceptación -->
         <div class="space-y-3 pt-2">
-          <p class="text-xs font-bold uppercase tracking-wide text-lightText">Confirmo que he leído y acepto: *</p>
-
+          <p data-i18n="checkIntro" class="text-xs font-bold uppercase tracking-wide text-lightText"></p>
           <label class="flex items-start gap-3 p-3 rounded-xl border border-gray-100 hover:bg-softOffWhite cursor-pointer transition-colors">
-            <input type="checkbox" name="acepta_intermediacion" value="Si" required class="mt-1 w-4 h-4 accent-primary shrink-0">
-            <span class="text-sm">Que <b>TANSI Tours actúa como intermediaria</b> entre yo y los prestadores finales.</span>
+            <input type="checkbox" name="acepta_intermediacion" value="Yes" required class="mt-1 w-4 h-4 accent-primary shrink-0">
+            <span data-i18n-html="check1" class="text-sm"></span>
           </label>
           <label class="flex items-start gap-3 p-3 rounded-xl border border-gray-100 hover:bg-softOffWhite cursor-pointer transition-colors">
-            <input type="checkbox" name="acepta_noshow" value="Si" required class="mt-1 w-4 h-4 accent-primary shrink-0">
-            <span class="text-sm">Las condiciones de <b>No Presentación (No Show)</b> — sin reembolso por retraso.</span>
+            <input type="checkbox" name="acepta_noshow" value="Yes" required class="mt-1 w-4 h-4 accent-primary shrink-0">
+            <span data-i18n-html="check2" class="text-sm"></span>
           </label>
           <label class="flex items-start gap-3 p-3 rounded-xl border border-gray-100 hover:bg-softOffWhite cursor-pointer transition-colors">
-            <input type="checkbox" name="acepta_cancelacion" value="Si" required class="mt-1 w-4 h-4 accent-primary shrink-0">
-            <span class="text-sm">Políticas de <b>cancelación y penalidades</b> (hasta 100%) y mi <b>Derecho de Retracto</b> de 5 días hábiles.</span>
+            <input type="checkbox" name="acepta_cancelacion" value="Yes" required class="mt-1 w-4 h-4 accent-primary shrink-0">
+            <span data-i18n-html="check3" class="text-sm"></span>
           </label>
           <label class="flex items-start gap-3 p-3 rounded-xl border border-gray-100 hover:bg-softOffWhite cursor-pointer transition-colors">
-            <input type="checkbox" name="acepta_seguro" value="Si" required class="mt-1 w-4 h-4 accent-primary shrink-0">
-            <span class="text-sm">Que se me <b>ofreció seguro / asistencia médica</b> y las consecuencias de no adquirirlo.</span>
+            <input type="checkbox" name="acepta_seguro" value="Yes" required class="mt-1 w-4 h-4 accent-primary shrink-0">
+            <span data-i18n-html="check4" class="text-sm"></span>
           </label>
           <label class="flex items-start gap-3 p-3 rounded-xl border border-gray-100 hover:bg-softOffWhite cursor-pointer transition-colors">
-            <input type="checkbox" name="acepta_operativo" value="Si" required class="mt-1 w-4 h-4 accent-primary shrink-0">
-            <span class="text-sm">Cláusulas de <b>fuerza mayor, modificación de itinerario, documentación, equipaje y retiro por mal comportamiento</b>.</span>
+            <input type="checkbox" name="acepta_operativo" value="Yes" required class="mt-1 w-4 h-4 accent-primary shrink-0">
+            <span data-i18n-html="check5" class="text-sm"></span>
           </label>
           <label class="flex items-start gap-3 p-3 rounded-xl border border-gray-100 hover:bg-softOffWhite cursor-pointer transition-colors">
-            <input type="checkbox" name="acepta_ley679" value="Si" required class="mt-1 w-4 h-4 accent-primary shrink-0">
-            <span class="text-sm">La advertencia de la <b>Ley 679 de 2001</b> sobre explotación sexual de menores.</span>
+            <input type="checkbox" name="acepta_ley679" value="Yes" required class="mt-1 w-4 h-4 accent-primary shrink-0">
+            <span data-i18n-html="check6" class="text-sm"></span>
           </label>
           <label class="flex items-start gap-3 p-3 rounded-xl border border-gray-100 hover:bg-softOffWhite cursor-pointer transition-colors">
-            <input type="checkbox" name="acepta_datos" value="Si" required class="mt-1 w-4 h-4 accent-primary shrink-0">
-            <span class="text-sm"><b>Autorizo el tratamiento de mis datos personales</b> (Ley 1581 de 2012).</span>
+            <input type="checkbox" name="acepta_datos" value="Yes" required class="mt-1 w-4 h-4 accent-primary shrink-0">
+            <span data-i18n-html="check7" class="text-sm"></span>
           </label>
           <label class="flex items-start gap-3 p-3 rounded-xl border border-gray-100 hover:bg-softOffWhite cursor-pointer transition-colors">
-            <input type="checkbox" name="acepta_firma_electronica" value="Si" required class="mt-1 w-4 h-4 accent-primary shrink-0">
-            <span class="text-sm">Que mi <b>aceptación electrónica equivale a firma</b> (Ley 527) y la reserva se confirma con aceptación + anticipo.</span>
+            <input type="checkbox" name="acepta_firma_electronica" value="Yes" required class="mt-1 w-4 h-4 accent-primary shrink-0">
+            <span data-i18n-html="check8" class="text-sm"></span>
           </label>
           <label class="flex items-start gap-3 p-3 rounded-xl border border-gray-100 hover:bg-softOffWhite cursor-pointer transition-colors">
-            <input type="checkbox" name="acepta_pago" value="Si" required class="mt-1 w-4 h-4 accent-primary shrink-0">
-            <span class="text-sm">La <b>forma de pago</b> (75% anticipo / 25% quince días antes) y declaro que la información es veraz.</span>
+            <input type="checkbox" name="acepta_pago" value="Yes" required class="mt-1 w-4 h-4 accent-primary shrink-0">
+            <span data-i18n-html="check9" class="text-sm"></span>
           </label>
         </div>
 
-        <!-- Firma electrónica -->
         <div>
-          <label for="firma_electronica" class="block text-xs font-bold uppercase tracking-wide text-lightText mb-2">
-            Firma electrónica — escribe tu nombre completo *
-          </label>
+          <label for="firma_electronica" data-i18n="lblSignature" class="block text-xs font-bold uppercase tracking-wide text-lightText mb-2"></label>
           <input type="text" id="firma_electronica" name="firma_electronica" required
-                 class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-darkText font-semibold placeholder:text-lightText focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="Tu nombre completo como firma">
-          <p class="text-xs text-lightText mt-2">Al enviar, manifiestas tu consentimiento expreso con plenos efectos legales.</p>
+                 data-i18n-placeholder="phSignature"
+                 class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-darkText font-semibold placeholder:text-lightText focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
+          <p data-i18n="signatureNote" class="text-xs text-lightText mt-2"></p>
         </div>
-
-        <div id="form-error" class="hidden bg-red-50 border border-red-200 text-red-700 rounded-xl p-4 text-sm"></div>
 
         <button type="submit" id="submit-btn"
                 class="w-full bg-accent hover:bg-accentHover text-white font-bold py-4 px-8 rounded-full text-base transition-all transform hover:scale-[1.02] shadow-[0_10px_20px_-10px_rgba(245,158,11,0.5)] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none">
           <i data-lucide="pen-line" class="w-5 h-5"></i>
-          Acepto y firmo electrónicamente
+          <span data-i18n="submitBtn"></span>
         </button>
       </form>
     </section>
@@ -393,17 +224,36 @@
 
   <footer class="bg-[#0f172a] text-gray-400 text-center py-8 text-xs">
     <p class="text-white font-semibold mb-1">TANSI Tours · Juan David Gómez · +57 323 390 9989</p>
-    <p>Turismo Auténtico, Natural, Seguro e Inteligente.</p>
+    <p data-i18n="footerTagline"></p>
   </footer>
 
+  <script src="/aceptar/i18n.js"></script>
   <script>
     lucide.createIcons();
 
     const form = document.getElementById('aceptar-form');
     const params = new URLSearchParams(window.location.search);
+    let currentLang = TANSI_getLang();
 
-    // --- Prefill desde URL ---
-    // Ejemplo: /aceptar?ref=SM-001&paquete=Santa+Marta+Op2&valor=3868000&pasajeros=4&fechas=19-22+oct+2026
+    document.getElementById('btn-lang-en').addEventListener('click', function () { TANSI_setLang('en'); updateNextUrl(); refreshPreviewEmpty(); });
+    document.getElementById('btn-lang-es').addEventListener('click', function () { TANSI_setLang('es'); updateNextUrl(); refreshPreviewEmpty(); });
+
+    TANSI_applyLang(currentLang);
+
+    function updateNextUrl() {
+      const next = form.querySelector('[name="_next"]');
+      const lang = window.TANSI_currentLang || 'en';
+      const url = window.location.origin + '/aceptar/gracias?lang=' + lang;
+      if (next) next.value = url;
+      else {
+        const inp = document.createElement('input');
+        inp.type = 'hidden'; inp.name = '_next'; inp.value = url;
+        form.appendChild(inp);
+      }
+      document.querySelector('[name="_language"]').value = lang;
+    }
+    updateNextUrl();
+
     function setField(id, paramKey, previewId, formatter) {
       const val = params.get(paramKey);
       if (!val) return;
@@ -423,7 +273,7 @@
       const n = Number(String(v).replace(/\./g, '').replace(/,/g, ''));
       return isNaN(n) ? v : '$' + n.toLocaleString('es-CO');
     });
-    setField('pasajeros', 'pasajeros', 'preview-pasajeros', v => v + ' pasajeros');
+    setField('pasajeros', 'pasajeros', 'preview-pasajeros', v => v + TANSI_I18N[currentLang].passengersSuffix);
     setField('fechas', 'fechas', 'preview-fechas');
 
     const ref = params.get('ref');
@@ -432,40 +282,37 @@
       document.getElementById('ref-display').textContent = decodeURIComponent(ref);
     }
 
-    // Preview defaults si no hay params
-    ['preview-paquete','preview-valor','preview-pasajeros','preview-fechas'].forEach(id => {
-      const el = document.getElementById(id);
-      if (el.textContent === '—') el.textContent = 'Completar en formulario';
-    });
+    function refreshPreviewEmpty() {
+      const lang = window.TANSI_currentLang || 'en';
+      ['preview-paquete','preview-valor','preview-pasajeros','preview-fechas'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el.textContent === '—' || el.textContent === TANSI_I18N.es.previewEmpty || el.textContent === TANSI_I18N.en.previewEmpty) {
+          el.textContent = TANSI_I18N[lang].previewEmpty;
+        }
+      });
+      const pax = params.get('pasajeros');
+      if (pax) document.getElementById('preview-pasajeros').textContent = decodeURIComponent(pax) + TANSI_I18N[lang].passengersSuffix;
+    }
+    refreshPreviewEmpty();
 
-    // Redirect tras envío exitoso
-    const nextInput = document.createElement('input');
-    nextInput.type = 'hidden';
-    nextInput.name = '_next';
-    nextInput.value = window.location.origin + '/aceptar/gracias';
-    form.appendChild(nextInput);
-
-    // Reply-to
-    document.getElementById('email').addEventListener('change', function() {
+    document.getElementById('email').addEventListener('change', function () {
       let replyto = form.querySelector('[name="_replyto"]');
       if (!replyto) {
         replyto = document.createElement('input');
-        replyto.type = 'hidden';
-        replyto.name = '_replyto';
+        replyto.type = 'hidden'; replyto.name = '_replyto';
         form.appendChild(replyto);
       }
       replyto.value = this.value;
     });
 
-    // --- Submit ---
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', function () {
       document.getElementById('field-url').value = window.location.href;
       document.getElementById('field-timestamp').value = new Date().toISOString();
       document.getElementById('field-ref').value = params.get('ref') || '';
-
+      document.getElementById('field-idioma').value = window.TANSI_currentLang || 'en';
       const btn = document.getElementById('submit-btn');
       btn.disabled = true;
-      btn.innerHTML = '<span class="animate-pulse">Enviando aceptación…</span>';
+      btn.querySelector('span').textContent = TANSI_I18N[window.TANSI_currentLang || 'en'].submitting;
     });
   </script>
 </body>
