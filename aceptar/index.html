@@ -254,6 +254,13 @@
     }
     updateNextUrl();
 
+    function formatCOP(raw) {
+      const digits = String(raw).replace(/[^\d]/g, '');
+      const n = Number(digits);
+      if (!digits || isNaN(n)) return String(raw).trim();
+      return n.toLocaleString('es-CO') + ' COP';
+    }
+
     function setField(id, paramKey, previewId, formatter) {
       const val = params.get(paramKey);
       if (!val) return;
@@ -268,11 +275,13 @@
 
     setField('field-ref', 'ref');
     setField('paquete', 'paquete', 'preview-paquete');
-    setField('valor_total', 'valor', 'preview-valor', v => {
-      if (v.startsWith('$')) return v;
-      const n = Number(String(v).replace(/\./g, '').replace(/,/g, ''));
-      return isNaN(n) ? v : '$' + n.toLocaleString('es-CO');
-    });
+    (function () {
+      const val = params.get('valor');
+      if (!val) return;
+      const formatted = formatCOP(decodeURIComponent(val.replace(/\+/g, ' ')));
+      document.getElementById('valor_total').value = formatted;
+      document.getElementById('preview-valor').textContent = formatted;
+    })();
     setField('pasajeros', 'pasajeros', 'preview-pasajeros', v => v + TANSI_I18N[currentLang].passengersSuffix);
     setField('fechas', 'fechas', 'preview-fechas');
 
@@ -295,6 +304,10 @@
     }
     refreshPreviewEmpty();
 
+    document.getElementById('valor_total').addEventListener('blur', function () {
+      if (this.value.trim()) this.value = formatCOP(this.value);
+    });
+
     document.getElementById('email').addEventListener('change', function () {
       let replyto = form.querySelector('[name="_replyto"]');
       if (!replyto) {
@@ -306,6 +319,8 @@
     });
 
     form.addEventListener('submit', function () {
+      const valorField = document.getElementById('valor_total');
+      if (valorField.value.trim()) valorField.value = formatCOP(valorField.value);
       document.getElementById('field-url').value = window.location.href;
       document.getElementById('field-timestamp').value = new Date().toISOString();
       document.getElementById('field-ref').value = params.get('ref') || '';
