@@ -58,7 +58,10 @@
         <h2 data-i18n="summaryTitle" class="text-xs font-bold uppercase tracking-widest text-accent"></h2>
       </div>
       <p data-i18n-html="summaryIntro" class="text-sm text-lightText mb-6"></p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+      <div id="summary-generic" class="bg-primary/5 border border-primary/20 rounded-xl p-4 text-sm text-darkText mb-4">
+        <p data-i18n-html="summaryGenericNote"></p>
+      </div>
+      <div id="summary-preview" class="hidden grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
         <div class="bg-softOffWhite rounded-xl p-4 border border-gray-100">
           <span data-i18n="lblPackage" class="text-xs font-bold uppercase tracking-wide text-lightText"></span>
           <p id="preview-paquete" class="font-semibold text-primary mt-1">—</p>
@@ -302,7 +305,26 @@
       const pax = params.get('pasajeros');
       if (pax) document.getElementById('preview-pasajeros').textContent = decodeURIComponent(pax) + TANSI_I18N[lang].passengersSuffix;
     }
+    function hasBookingParams() {
+      return ['paquete', 'valor', 'pasajeros', 'fechas', 'ref'].some(function (k) { return params.get(k); });
+    }
+
+    function updateSummaryView() {
+      var generic = document.getElementById('summary-generic');
+      var preview = document.getElementById('summary-preview');
+      if (hasBookingParams()) {
+        generic.classList.add('hidden');
+        preview.classList.remove('hidden');
+        preview.classList.add('grid');
+      } else {
+        generic.classList.remove('hidden');
+        preview.classList.add('hidden');
+        preview.classList.remove('grid');
+      }
+    }
+
     refreshPreviewEmpty();
+    updateSummaryView();
 
     document.getElementById('valor_total').addEventListener('blur', function () {
       if (this.value.trim()) this.value = formatCOP(this.value);

@@ -5,7 +5,19 @@
 del plan van en los parámetros del enlace (`paquete`, `fechas`, `valor`).
 
 ## URLs
-- Formulario: `https://www.tansitours.lat/aceptar`
+
+### Enlace general (mismo para todos los tours)
+Sirve para **cualquier** experiencia de TANSI — la que ya está en la web o las que se creen después.
+El cliente completa manualmente los datos de su cotización.
+
+```
+https://www.tansitours.lat/aceptar?lang=es
+https://www.tansitours.lat/aceptar?lang=en
+```
+
+### Enlace personalizado (por reserva — recomendado por WhatsApp)
+Tú armas el enlace con los datos de **esa** reserva; el formulario llega prellenado.
+
 - Confirmación: `https://www.tansitours.lat/aceptar/gracias`
 
 ## Idioma (EN / ES)
